@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.30)  16 FEB 2024 19:35
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.30)  16 FEB 2024 22:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1147,8 +1147,6 @@ ai.trsl' found. on input line 238.
 \thai@year=\count381
 LaTeX Font Info:    Font shape `TU/THSarabunNew(1)/m/n' will be
 (Font)              scaled to size 21.25432pt on input line 251.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(1)/b/n' will be
-(Font)              scaled to size 21.25432pt on input line 251.
 [1
 
 
@@ -1184,10 +1182,12 @@ File: timeline.jpeg Graphic file (type bmp)
 
 ] [7] [8
 
-] [9]
-Overfull \hbox (12.53578pt too wide) in paragraph at lines 103--104
-[]   \TU/THSarabunNew(1)/b/n/12 Application platform :  \TU/THSarabunNew(1)/m/n
-/12 มี การ ปรับปรุง แพลตฟอร์ม หลาย ประการ สำหรับ Windows Containers
+] [9
+
+]
+Overfull \hbox (8.64407pt too wide) in paragraph at lines 103--104
+[]   \TU/THSarabunNew(1)/b/n/12 Application platform : \TU/THSarabunNew(1)/m/n/
+12 มี การ ปรับปรุง แพลตฟอร์ม หลาย ประการ สำหรับ Windows Containers
  []
 
 
@@ -1203,7 +1203,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
 [10
 
-]) [11
+] [11
+
+] [12] [13]) [14
 
 ]
 \openout2 = `references.aux'.
@@ -1215,10 +1217,19 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
 (Font)              scaled to size 17.71193pt on input line 26.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(1)/b/n' will be
 (Font)              scaled to size 17.71193pt on input line 26.
-) [12
+ [15
 
 
 
+
+]
+Underfull \hbox (badness 2134) in paragraph at lines 73--75
+[]\TU/THSarabunNew(1)/m/n/12 9experttraining.com (ม.ป.ป.). \TU/THSarabunNew(1)/
+b/n/12 รู้จัก กับ Data Analyst และ ทักษะ ที่ ต้อง รู้ \TU/THSarabunNew(1)/m/n/1
+2 เข้า ถึง เมื่อ 16
+ []
+
+) [16
 
 ]
 The property list \polyglossia@langsetup contains the pairs (without outer
@@ -1263,15 +1274,14 @@ The property list \__xpg_alias contains the pairs (without outer braces):
 >  {th/target}  =>  {thai}.
  (./UP_IS-XeLaTeX2022.aux
 \thai@year=\count382
- (./chap1.aux)
-(./references.aux)) ) 
+ (./chap1.aux) (./references.aux)) ) 
 Here is how much of TeX's memory you used:
- 28233 strings out of 476683
- 604449 string characters out of 5804046
+ 28236 strings out of 476683
+ 604390 string characters out of 5804046
  1857018 words of memory out of 5000000
- 48041 multiletter control sequences out of 15000+600000
- 512888 words of font info for 70 fonts, out of 8000000 for 9000
+ 48045 multiletter control sequences out of 15000+600000
+ 512880 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  116i,6n,119p,1660b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on UP_IS-XeLaTeX2022.pdf (12 pages).
+Output written on UP_IS-XeLaTeX2022.pdf (16 pages).

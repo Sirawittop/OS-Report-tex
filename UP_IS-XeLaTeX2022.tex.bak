@@ -1,0 +1,577 @@
+%-\textbf{}%\documentclass[a4paper,12pt]{upthesis}
+\documentclass[a4paper,12pt]{upthesis}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{natbib}
+% แพคเกจสำหรับสร้าง hyperlink ด้วยคำสั่ง \href{<url>}{<Text to show>}
+%\usepackage[linktocpage=true]{hyperref}       % Create hyperlink with command \href{<url>}{<Text to show>}.
+
+% แพคเกจสำหรับเรียกใช้การหมุนภาพ หรือตาราง
+\usepackage{rotating}       % Package for rotating either figure or table with command
+                                      %\begin{sidewaysfigure} or \begin{sidewaystable} and also \end{} as well.
+\usepackage{enumitem}		% For customize the symbols or enumeration                                      
+
+% เป็นการกำหนดค่าเลขหน้าภาษาไทยในช่วงแรก
+\usepackage{polyglossia}
+\setdefaultlanguage{thai}
+\setotherlanguages{thai}
+% เป็นการกำหนดแพคเกจสำหรับจัดการเรื่องฟอนต์ รวมถึงการใช้ภาษาไทย
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+\usepackage{indentfirst}
+\usepackage{fancybox}
+\usepackage{pst-grad}
+\usepackage{pst-osci}
+\usepackage{pst-coil}
+\usepackage{tabularx}
+
+% Set caption of Table & Figure align on the left most
+% สำหรับกำหนดคำอธิบายของตารางและรูปให้อยู่ด้านซ้ายสุด
+\usepackage[labelfont=bf, textfont=bf]{caption}
+% labelfont = bf เป็นการกำหนดให้คำนำของตารางและรูปเป็นตัวหนา เช่น ตารางที่ 2 หรือ รูปที่ 3 จะเป็นตัวหนา เป็นต้น
+% textfont = bf เป็นการกำหนดตัวอักษรคำอธิบายเป็นตัวหนา
+% textfont = sl เป็นการกำหนดตัวอักษรคำอธิบายเป็นตัวเอียง
+% singlelinecheck=off เป็นการกำหนดคำอธิบายที่มีบรรทัดเดียวให้เริ่มที่ด้านซ้ายสุด
+
+% Set caption of Table & Figure align at start of Table or Figure LHS.
+% กำหนดคำอธิบายตารางและภาพให้เริ่มต้นที่ด้านซ้ายมือสุดของตาราง หรือรูปภาพ
+\usepackage{floatrow}
+\floatsetup[table]{style=plaintop, footnoterule=none,footskip=.35\skip\footins}  
+% Set caption of Table on top of table
+% กำหนดคำอธิบายตารางให้อยู่ด้านบนของตาราง
+% Use command \ttabbox {\caption {<caption text here>}} to set text equal a width of table.
+% ใช้คำสั่ง \ttabbox {\caption {<caption text here>}} เพื่อกำหนดให้คำอธิบายมีขนาดความกว้างเท่ากับความกว้างของตาราง
+
+% กำหนดการตัดคำ ขนาด และฟอนต์ที่จะใช้สำหรับภาษาไทย
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\defaultfontfeatures{Scale=1.23}
+\setmainfont[Mapping=tex-text]{TH Sarabun New}
+
+%\setdefaultlanguage{thai}
+%\newfontfamily{\thaifont}[Script=thai]{TH Niramit AS}
+
+\usepackage{pstricks,pst-plot,pst-node}
+\usepackage{pst-3dplot}
+\usepackage{pstricks-add}
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                                             % when including figure files
+\usepackage{multicol}         % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{tensor}             %for write tensor indices
+\usepackage{color}                 % for assign a color to text with command
+                                        %\textcolor{color}{text}
+\usepackage{enumitem}		% For customize the symbols or enumeration                           
+
+%Package for setup page (paper size)
+% สำหรับการกำหนดขนาดของกระดาษ   *** แก้ไขได้ หากใช้กระดาษ และจัดขอบกระดาษต่างจากนี้ ***
+\usepackage{geometry}
+ \geometry{
+ a4paper,		% Paper size ขนาดกระดาษ
+ total={147.5mm,234.5mm},	% Total area of text on the page	ขนาดกว้างยาวของพื้นที่สำหรับข้อความในกระดาษ
+ left=37.5mm,			% Left margin	1 inch = 25.4 mm ระยะขอบซ้าย
+ %right=25mm,				% Right margin ระยะขอบขวา (ไม่กำหนดก็ได้ เพราะจะจัดอัตโนมัติ)
+ top=37.5mm,			% Top margin	1.5 inch = 38.1 mm ระยะขอบบน
+% bottom=25mm,		% Bottom margin ระยะขอบล่าง (ไม่กำหนดก็ได้ เพราะจะจัดอัตโนมัติ)
+ }
+
+
+% กำหนดรูปแบบสิ่งแวดล้อมของตัวอย่าง  *** ไม่ควรแก้ไข ***
+\newcounter{Exampctr}\newsavebox{\Exampname}
+\newenvironment{example}[1]
+  {\stepcounter{Exampctr}%
+   \sbox{\Exampname}{\textit{#1}}
+   \begin{description}\item[ตัวอย่างที่ \arabic{Exampctr}][\usebox{\Exampname}]~}
+   {\end{description}}
+
+% กำหนดรูปแบบสิ่งแวดล้อมของนิยาม
+\newcounter{Defctr}\newsavebox{\Defname}
+\newenvironment{definition}[1]
+  {\stepcounter{Defctr}%
+   \sbox{\Defname}{\textit{#1}}
+   \begin{description}\item[นิยาม \arabic{Defctr}][\usebox{\Defname}]~}
+   {\end{description}}
+
+% กำหนดรูปแบบสิ่งแวดล้อมของแบบฝึกหัด
+\newcounter{Probctr}\newsavebox{\Probname}
+\newenvironment{problem}[1]
+  {\stepcounter{Probctr}
+   \sbox{\Probname}{\textit{#1}}
+   \begin{description}\item[แบบฝึกหัดที่ \arabic{Probctr}][\usebox{\Probname}]~}
+   {\end{description}}
+
+% กำหนดรูปแบบสิ่งแวดล้อมของทฤษฎีบท
+\newcounter{Theoctr}\newsavebox{\Theoname}
+\newenvironment{theorem}[1]
+  {\stepcounter{Theoctr}
+   \sbox{\Theoname}{\textit{#1}}
+   \begin{description}\item[ทฤษฎีบทที่ \arabic{Probctr}][\usebox{\Theoname}]~}
+   {\end{description}}
+
+% การนิยามคำสั่งที่ใช้บ่อย และยาว ให้สั้นลง
+\def\l{\left}
+\def\r{\right}
+%\def\be{\begin{equation}}
+%\def\ee{\end{equation}}
+%\def\bea{\begin{eqnarray}}
+%\def\eea{\end{eqnarray}}
+\def\f{\frac}
+\def\no{\nonumber}
+\def\i{\hat{i}}
+\def\j{\hat{j}}
+\def\k{\hat{k}}
+\def\ro{\hat{\rho}}
+\def\vp{\hat{\varphi}}
+\def\x{\hat{x}}
+\def\y{\hat{y}}
+\def\z{\hat{z}}
+\def\e#1{\hat{e}_{#1}}
+\def\rh{\hat{r}}
+\def\tt{\hat{\theta}}
+\def\ph{\hat{\phi}}
+\def\cross{\times}
+\def\pd{\partial}
+\def\pdx{\frac{\partial}{\partial x}}
+\def\pdy{\frac{\partial}{\partial y}}
+\def\pdz{\frac{\partial}{\partial z}}
+\def\pdt{\frac{\partial}{\partial t}}
+\def\ddx{\frac{d}{dx}}
+\def\ddy{\frac{d}{dy}}
+\def\ddz{\frac{d}{dz}}
+\def\ddt{\frac{d}{dt}}
+\def\pt#1#2{\frac{\partial{#1}}{\partial{#2}}}
+\def\dd#1#2{\frac{d{#1}}{d{#2}}}
+\def\det#1{\rm det({#1})}
+\def\tr#1{\rm Tr({#1})}
+\def\ul#1{\rm \underline{#1}}
+\def\dul#1{\rm \underline{\underline{#1}}}
+\def\mi#1#2{\rm M_{#1}(\underline{#2})}
+\def\co#1#2{\rm C_{#1}(\underline{#2})}
+\def\red#1{\textcolor{red}{#1}}
+\def\blue#1{\textcolor{blue}{#1}}
+\def\w9{{\rm WMAP9+BAO+}$H_0$}
+\def\p15{$TT,TE,EE${\rm +lowP+Lensing+ext}}
+
+%\renewcommand{\chaptername}{บทที่}
+%\renewcommand{\figurename}{รูปที่}
+%\renewcommand{\contentsname}{สารบัญ}
+%\renewcommand{\indexname}{ดัชนี}
+
+%%%%%%%%%%%%%%%
+% Add prefix in front of Chapter number in Content
+\usepackage{afterpage}
+\DeclareRobustCommand*{\contheading}{%
+  \afterpage{{\normalfont\large\bfseries\centering
+ {\large\bf สารบัญ (ต่อ)}\\
+ \hfill {\normalsize\bf หน้า}\par\bigskip}}}
+%%%%%%%%%%%%%%%
+\DeclareRobustCommand*{\figcontheading}{%
+  \afterpage{{\normalfont\large\bfseries\centering
+ {\large\bf สารบัญภาพ (ต่อ)}\\ \vspace{0.5cm}
+ \hspace{10mm}{\normalsize\bf ภาพ}\hfill {\normalsize\bf หน้า}\par\vspace{0.7cm}}}}
+ %%%%%%%%%%%%%%%
+\DeclareRobustCommand*{\tabcontheading}{%
+  \afterpage{{\normalfont\large\bfseries\centering
+ {\large\bf สารบัญตาราง (ต่อ)}\\ \vspace{0.5cm}
+ \hspace{10mm}{\normalsize\bf ตาราง}\hfill {\normalsize\bf หน้า}\par\vspace{0.7cm}}}}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% Make List of Figure (Continued) page %%%%%%%%%%%%%%%%%%
+\makeatletter
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% สร้างดัชนีคำ (ถ้ามี) ก็ให้เอา % หน้า \makeindex ออก
+%\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+% สร้างเส้นหนาให้กับเส้นแนวนอน และเส้นแนวตั้งของตาราง
+% ด้วยคำสั่ง \thline{1pt} หรือ \tvline{1pt}   %***ไม่ควรแก้ไข ***
+% Make a Thick hline and vline in a Table
+% by using \thline{1pt} or \tvline{1pt}
+\usepackage{array,tabularx}
+\makeatletter
+\def\thline#1{%
+    \noalign {\ifnum 0=`}\fi \hrule height #1
+    \futurelet \reserved@a \@xhline
+}
+\def\tvline#1{@{\hskip\tabcolsep\vrule width #1\hskip\tabcolsep}}
+\makeatother
+% End of make thick hline and vline
+
+% package{multirow} ใช้รวมแถวในตาราง
+%package{multirow} is use to combine the rows in a table.
+\usepackage{multirow}
+% package{array} ใช้ขยายความสูงของแต่ละแถวในตาราง
+%package{array} is use to expand the height of each row in a table.
+\usepackage{array}
+%This command is use to setting the stretch of the height of each row in a table.
+% คำสั่งสำหรับตั้งค่าความสูงของแต่ละแถวในตาราง
+%\renewcommand{\arraystretch}{2}
+
+%\usepackage{fancyhdr}   % Customized the heading with command \lhead{}, \rhead{}, \chead{}, \lfoot{}, \rfoot{}, \cfoot{}
+%\DeclareRobustCommand*{\contheading}{%
+%  \afterpage{{\normalfont\large\bfseries\centering
+%  สารบัญ (ต่อ)\par\bigskip}}}
+% spacing after headings
+%the titlesec package- it provides the command \titlespacing which has the format
+%\titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+%From the titlesec package
+% spacing: how to read {12pt plus 4pt minus 2pt}
+%           12pt is what we would like the spacing to be
+%           plus 4pt means that TeX can stretch it by at most 4pt
+%           minus 2pt means that TeX can shrink it by at most 2pt
+%       This is one example of the concept of, 'glue', in TeX
+%\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    ผู้เขียนเล่มการศึกษาอิสระ สามารถทำการแก้ไขได้ตั้งแต่ส่วนนี้เป็นต้นไป
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% กำหนดหัวข้อภาษาไทย
+
+% Just only Thai Title!!! This will be used at the title of Abstract
+\title{  						% Title in Thai ชื่อเรื่องภาษาไทย
+พลังงานมืดแบบกฎกำลังของเตคีออน
+}
+\titleen{						% Title in English ชื่อเรื่องภาษาอังกฤษ
+Tachyonic Power-Law Dark Energy
+}
+
+% คำนำหน้าผู้เขียน
+\nameprefix{นางสาว}
+\nameprefixen{Miss}
+
+% ชื่อ และนามสกุลของผู้เขียน
+% \author{Name}{Surname}
+\author{น้ำเพชร}{แก้ววิลัย}
+\authoren{Nampetch}{Kaewwilai}
+
+
+% your figure ใส่ไฟล์รูปของผู้เขียน
+\myfig{CylinderCoor.png}
+
+% ชื่ออาจารย์ที่ปรึกษา
+\advisor{ดร.พงศพัศ แรงดี}                                % advisor
+\advisoren{Dr.Phongsaphat Rangdee}
+
+% ชื่ออาจารย์ที่ปรึกษาร่วม
+\coadvisor{ดร.ชลธิชา กฤษณ์เพ็ชร}
+\coadvisoren{Dr.Chonticha Kritpetch}
+
+%ชื่อปริญญา
+\degree{วิทยาศาสตรบัณฑิต}                                   % degree
+\degreeen{Bachelor of Science}
+%ชื่อย่อปริญญา
+\degreeAbb{วท.บ.}                                               % degree (abbreviation)
+\degreeAbben{B.Sc.}
+
+%หลักสูตร หรือสาขาวิชา
+\major{ฟิสิกส์}                                      % major
+\majoren{Physics}
+
+% ภาควิชา หรือสาขาวิชา
+\dept{ภาควิชาฟิสิกส์}                      % department
+
+% เดือน และปี พ.ศ. ที่สำเร็จการศึกษา
+\date{ตุลาคม 2565}                                               % date
+
+% ปีการศึกษา
+\academicyear{2565}                                             % academic year
+
+% คำสำคัญ ภาษาไทย  และภาษาอังกฤษ
+\keywordsth{                                                      % keywords in Thai คำสำคัญ ภาษาไทย ควรมีแค่ 3-4 คำ
+            แก๊สแชปลีจิน, พลังงานมืด, สนามสเกลาร์, เอกภพที่เร่งออก
+         }
+\keywords{						% Keywords in English คำสำคัญ ภาษาอังกฤษ ไม่ควรยาวมาก และควรมีแค่ 3-4 คำ
+			Chaplygin Gas, Dark Energy, Accelerating Universe, Phantom Power-Law
+		}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-----------------------------------------------
+%%               some Biography                %%
+%%            ข้อมูลประวัติส่วนตัว					%%
+%%-----------------------------------------------
+% your birth date วันเดือนปีเกิด
+\dateofbirth{26 มิถุนายน 2540}
+% place of your birth  สถานที่เกิด
+\placeofbirth{จังหวัดพะเยา, ประเทศไทย}
+% present address (province and country)	จังหวัดปัจจุบัน และประเทศ
+\provinceTH{จังหวัดพะเยา, ประเทศไทย}                  
+% your current address	ที่อยู่ตามทะเบียนบ้าน หรือที่ติดต่อได้
+\address{เลขที่ 19 หมู่ 2 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา}
+\zipcode{56000}		% รหัสไปรษณีย์
+% Phone number  เบอร์โทรปัจจุบัน
+\myphone{081-2345679}
+% Email อีเมลที่ใช้อยู่
+\myemail{myemail@mymail.com}
+
+% your working place สถานที่ทำงาน (ถ้ามี)
+%\workplace{}
+%\position{Lecturer at University of Phayao}
+%\workplace{Department of Physics, Faculty of Science, University of Phayao, Phayao 56000, Thailand}
+
+% Work Experiences ประสบการณ์การทำงาน (ถ้ามี)
+%\WorkExpr{      
+%\workexpr{2005 - 2009}{Lecturer at Department of Physics, Faculty of Science, University of Phayao, Phayao, Thailand}
+%\workexpr{2000 - 2001}{Lecturer at Department of Physics, Faculty of Science, Naresuan University, Phitsanulok, Thailand}
+%}
+
+% Education Background การศึกษาที่ผ่านมา
+\EduBG{         
+\authorEduBG{มัธยมศึกษาตอนต้น}{โรงเรียนมัธยมศึกษาตอนต้น อำเภอเมือง จังหวัดพะเยา}{2552}
+\authorEduBG{มัธยมศึกษาตอนปลาย}{โรงเรียนมัธยมศึกษาตอนปลาย อำเภอเมือง จังหวัดพะเยา}{2555}
+}
+
+%Publication List  รายการผลงานตีพิมพ์ (ถ้ามี)
+%\Publication{   
+%\publication{1}{\textbf{Rachan Rangdee} (IF) and Burin Gumjudpai (IF and ThEP), ``Tachyonic (phantom) power-law cosmology'', Astrophysics and Space Science \textbf{349} (2014) 975-984.
+%[arXiv:1210.5550 [astro-ph.CO]]}
+%\publication{2}{Burin Gumjudpai (IF and ICTP) and \textbf{Phongsaphat Rangdee} (IF), ``Non-minimal derivative coupling gravity in cosmology'', General Relativity and Gravitation \textbf{47} (2015) 140.
+%[arXiv:1511.00491 [gr-qc]]}
+%}
+
+% Oral and Poster Presentation List  รายการการนำเสนอทั้งแบบ Oral & Poster
+%\Presentation{          
+%\presentation{1}{\textbf{Rachan Rangdee} and Burin Gumjudpai (IF), ORAL ``Non-minimal Derivative Coupling with Power-Law'', RGJ-Ph.D. Congress XVI ``ASEAN: Emerging Research Oppotunities'', Pattaya, Chonburi, Thailand (2015).}
+%\presentation{2}{\textbf{Rachan Rangdee} (IF), ORAL ``Aspects of non-minimal derivative coupling'', the $7^{\rm th}$ Aegean Summer School Beyond Einstein's Theory of Gravity, Parikia, Island of Paros, Greece, (2013).}
+%\presentation{3}{\textbf{Rachan Rangdee} (IF), ORAL ``Tachyonic Phantom Power-Law Cosmology'', the Workshop on Heavy Ion and High Energy Physics 2012 (HIHEP2012), Naresuan University, Phitsanulok, Thailand (2012).}
+%\presentation{4}{\textbf{Rachan Rangdee} (IF), ORAL ``Tachyonic Power-Law Cosmology'', the Siam Physics Congress 2012 (SPC2012): Past, Present and Future of Physics, Phranakhon Si Ayutthaya, Thailand (2012).}
+%\presentation{5}{\textbf{Rachan Rangdee} (TPTP), POSTER ``TACHYONIC DARK ENERGY MODEL: DYNAMICS AND EVOLUTION'', the $11^{\rm th}$ Asian-Pacific Regional IAU Meeting (APRIM2011), Chiang Mai, Thailand (2011).}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  เริ่มต้นเอกสาร
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagenumbering{thaialph}
+%\maketitle
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% MAKE A COVER PAGE
+%%% สร้างหน้าปก (หน้าแรก)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\begin{center} % กำหนดชื่อเรื่อง ภาษาไทย และภาษาอังกฤษ
+\Large{\textbf{พลังงานมืดแบบกฎกำลังของเตคีออน\\
+(Tachyonic Power-Law Dark Energy)\\}}
+\vspace{7cm}
+\textbf{นางสาวน้ำเพชร แก้ววิลัย\\} % ชื่อนามสกุลผู้เขียน
+\vspace{7cm}
+\textbf{การศึกษาอิสระเสนอเป็นส่วนหนึ่งของการศึกษา\\
+หลักสูตรปริญญาวิทยาศาสตรบัณฑิต\\
+สาขาวิชาฟิสิกส์\\
+ตุลาคม 2565\\
+มหาวิทยาลัยพะเยา\\
+ลิขสิทธิ์เป็นของมหาวิทยาลัยพะเยา}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% MAKE AN APPROVE PAGE สร้างหน้าอนุมัติ
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\setcounter{page}{1}
+%\addtocontents{toc}{\protect\contentsline{chapter}{หน้าอนุมัติ}{\thepage}\protect}
+\addcontentsline{toc}{chapter}{\protect หน้าอนุมัติ\protect}
+\thispagestyle{empty}
+
+% ใส่ชื่อเรื่องการศึกษาอิสระ
+\textbf{คณะกรรมการสอบการศึกษาอิสระ อาจารย์ที่ปรึกษา และคณบดีคณะวิทยาศาสตร์ ได้พิจารณาการศึกษาอิสระเรื่อง ``ชื่อเรื่องการศึกษาอิสระ" เห็นสมควรรับเป็นส่วนหนึ่งของการศึกษา ตามหลักสูตรปริญญาวิทยาศาสตรบัณฑิต สาขาวิชาฟิสิกส์ ของมหาวิทยาลัยพะเยา}
+%Has been approved by the Graduate School as partial fulfillment of the requirements
+%for the Doctor of Philosophy Degree in Theoretical Physics\\ of Naresuan University.\\
+\vskip0.6cm
+\normalsize
+\begin{center}
+%\textbf{คณะกรรมการสอบ}\vskip1cm
+%\textbf{Oral Defense Committee}\vskip1cm
+\vskip2.5cm
+
+...........................................................................\\
+(ดร.ศุภกร จันเลน)\\		% ใส่ชื่อประธานกรรมการสอบ
+ประธานกรรมการสอบ \\ 
+\vskip2.5cm
+
+...........................................................................\\
+(ดร.พงศพัศ แรงดี)\\			% ใส่ชื่อกรรมการ คนที่เป็นอาจารย์ที่ปรึกษาหลัก
+กรรมการและอาจารย์ที่ปรึกษา \\ 	
+\vskip2.5cm
+
+...........................................................................\\
+(ดร.วัชราวุฒิ กฤตินธรรม)\\			% ใส่ชื่อกรรมการ คนที่เป็นอาจารย์ที่ปรึกษาร่วม 
+กรรมการ \\ 
+\vskip2.5cm
+
+
+%\textbf{ตรวจสอบแล้ว}\vskip1cm
+
+...........................................................................\\
+(รองศาสตราจารย์ ดร.ชยันต์ บุณยรักษ์)\\
+คณบดีคณะวิทยาศาสตร์\\
+ตุลาคม 2565\\
+ลิขสิทธิ์เป็นของมหาวิทยาลัยพะเยา \\
+%\afterpage{\blankpage}
+%\copyrightpage
+\end{center}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% MAKE AN ACKNOWLEDGEDMENT PAGE
+%%% สร้างกิตติกรรมประกาศ จะขอบคุณใคร อะไร ก็ใส่ตรงนี้
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%\addtocontents{toc}{\protect\contentsline{chapter}{กิตติกรรมประกาศ}{\thepage}\protect}
+\addcontentsline{toc}{chapter}{\protect กิตติกรรมประกาศ\protect}
+\begin{acknowledgement}     % acknowledgement environment, this is optional
+\baselineskip=8mm
+\setcounter{page}{2}
+
+ในการศึกษาวิจัยครั้งนี้ ข้าพเจ้าขอขอบพระคุณ ...
+
+\vspace{0.5cm}
+% or \input{acknowledgement.tex} % you need a separate acknowledgement.tex file to include it.
+\begin{flushright}
+\makeauthor
+\end{flushright}
+
+\end{acknowledgement}
+
+
+\renewcommand{\arraystretch}{1.1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% MAKE AN ABSTRACT PAGE
+%%% สร้างบทคัดย่อ ภาษาไทย และภาษาอังกฤษ
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%\addtocontents{toc}{\protect\contentsline{chapter}{บทคัดย่อ}{\thepage}\protect}
+\addcontentsline{toc}{chapter}{\protect บทคัดย่อ\protect}
+\begin{abstractth}	% เขียนบทคัดย่อภาษาไทย
+
+บทคัดย่อภาษาไทย เขียนตรงนี้
+
+
+\end{abstractth}
+
+\newpage
+%\addtocontents{toc}{\protect\contentsline{chapter}{ABSTRACT}{\thepage}\protect}
+\addcontentsline{toc}{chapter}{\protect Abstract\protect}
+\begin{abstract} % เขียนบทคัดย่อภาษาอังกฤษ
+\baselineskip=8mm
+
+Our universe today is under the accelerating expansion phase. Most physicists and cosmologists believe that this behavior is due to an unknown form of energy known as dark energy. There are many models proposed to explain this behavior of the universe. In our work, we consider the two different cosmological models in the scenario of canonical and phantom power-law cosmology.
+
+First, the tachyonic scalar field-driven late universe with dust matter content is considered. The cosmic expansion is modeled with power-law and phantom power-law expansion at late time, i.e. $z \lesssim 0.45$. WMAP7 and its combination with other data are used to constraint the model. The forms of potential and the field solution are different for quintessence and tachyonic cases. Power-law cosmology model (driven by either quintessence or tachyonic field) predicts an equation of state parameter that does not match the observed value and hence the power-law model is excluded for both quintessence and tachyonic field. In the opposite, the phantom power-law model predicts agreeing valued of equation of state parameter with the observational data for both quintessence and tachyonic cases, i.e. $w_{\phi, 0}  = -1.49^{+11.64}_{-4.08}$ (WMAP7+BAO+$H_0$) and  $ w_{\phi, 0}  = -1.51^{+3.89}_{-6.72} $  (WMAP7).  The phantom-power law exponent $\beta$ must be less than about -6, so that the $-2 < w_{\phi, 0} < -1$. The phantom power-law tachyonic potential is reconstructed. We found that dimensionless potential slope variable $\Gamma$  at present is about 1.5. The tachyonic potential reduces to $V= V_0\phi^{-2}$ in the limit $\Omega_{\m, 0} \rightarrow 0$.
+
+
+\end{abstract}
+%\maketitle
+\renewcommand{\arraystretch}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+% ถ้ามีคำนำ ก็สามารถเรียกใช้ตรงนี้ได้เลย
+%\include{preface}   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+% สร้างสารบัญ
+\tableofcontents
+% เพิ่มสารบัญเรื่อง ในสารบัญ
+\addcontentsline{toc}{chapter}{\protect สารบัญเรื่อง\protect}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% List of Tables
+% สร้างสารบัญตาราง
+\listoftables
+% เพิ่มสารบัญตารางในสารบัญ
+\addcontentsline{toc}{chapter}{\protect สารบัญตาราง\protect}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%List of Figures
+% สร้างสารบัญภาพ
+\listoffigures
+% เพิ่มสารบัญภาพในสารบัญ
+\addcontentsline{toc}{chapter}{\protect สารบัญภาพ\protect}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% กำหนดเลขหน้าเป็นเลขอารบิก
+\pagenumbering{arabic}
+\pagestyle{headings}
+\setcounter{page}{1}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% ADD CHAPTER TO THE MAIN FILE เพิ่มเนื้อหาของแต่ละบท
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{chap1}
+\include{chap2}
+%\include{chap3}
+%\include{chap4}
+%\include{chap5}
+%\include{chap6}
+%\include{chap7}
+%\include{chap8}
+%\include{chap9}
+\include{references}
+\appendix
+\include{appendix}
+
+
+%\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\renewcommand{\bibname}{บรรณานุกรม}
+%\bibliographystyle{myref}
+%\nocite{*}
+%\bibliography{References}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CREATE THE BIBLIOGRAPHY  สร้างหน้าประวัติผู้เขียน
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\renewcommand{\arraystretch}{1}
+\makebiography                          % Generate your biography page
+%\makeWorkExpr                           % Generate your work experiences
+\makeEduBG
+%\makePublication
+%\makePresentation
+
+\end{document}
+

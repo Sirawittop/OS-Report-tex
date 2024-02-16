@@ -1,0 +1,294 @@
+%-\textbf{}%\documentclass[a4paper,12pt]{upthesis}
+\documentclass[a4paper,12pt]{upthesis}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{natbib}
+% แพคเกจสำหรับสร้าง hyperlink ด้วยคำสั่ง \href{<url>}{<Text to show>}
+%\usepackage[linktocpage=true]{hyperref}       % Create hyperlink with command \href{<url>}{<Text to show>}.
+
+% แพคเกจสำหรับเรียกใช้การหมุนภาพ หรือตาราง
+\usepackage{rotating}       % Package for rotating either figure or table with command
+                                      %\begin{sidewaysfigure} or \begin{sidewaystable} and also \end{} as well.
+\usepackage{enumitem}		% For customize the symbols or enumeration                                      
+
+% เป็นการกำหนดค่าเลขหน้าภาษาไทยในช่วงแรก
+\usepackage{polyglossia}
+\setdefaultlanguage{thai}
+\setotherlanguages{thai}
+% เป็นการกำหนดแพคเกจสำหรับจัดการเรื่องฟอนต์ รวมถึงการใช้ภาษาไทย
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+\usepackage{indentfirst}
+\usepackage{fancybox}
+\usepackage{pst-grad}
+\usepackage{pst-osci}
+\usepackage{pst-coil}
+\usepackage{tabularx}
+
+\usepackage[labelfont=bf, textfont=bf]{caption}
+\usepackage{floatrow}
+\floatsetup[table]{style=plaintop, footnoterule=none,footskip=.35\skip\footins}  
+
+% กำหนดการตัดคำ ขนาด และฟอนต์ที่จะใช้สำหรับภาษาไทย
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\defaultfontfeatures{Scale=1.23}
+\setmainfont[Mapping=tex-text]{TH Sarabun New}
+
+%\setdefaultlanguage{thai}
+%\newfontfamily{\thaifont}[Script=thai]{TH Niramit AS}
+
+\usepackage{pstricks,pst-plot,pst-node}
+\usepackage{pst-3dplot}
+\usepackage{pstricks-add}
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                                             % when including figure files
+\usepackage{multicol}         % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{tensor}             %for write tensor indices
+\usepackage{color}                 % for assign a color to text with command
+                                        %\textcolor{color}{text}
+\usepackage{enumitem}		% For customize the symbols or enumeration                           
+
+%Package for setup page (paper size)
+% สำหรับการกำหนดขนาดของกระดาษ   *** แก้ไขได้ หากใช้กระดาษ และจัดขอบกระดาษต่างจากนี้ ***
+\usepackage{geometry}
+ \geometry{
+ a4paper,		% Paper size ขนาดกระดาษ
+ total={147.5mm,234.5mm},	% Total area of text on the page	ขนาดกว้างยาวของพื้นที่สำหรับข้อความในกระดาษ
+ left=37.5mm,			% Left margin	1 inch = 25.4 mm ระยะขอบซ้าย
+ %right=25mm,				% Right margin ระยะขอบขวา (ไม่กำหนดก็ได้ เพราะจะจัดอัตโนมัติ)
+ top=37.5mm,			% Top margin	1.5 inch = 38.1 mm ระยะขอบบน
+% bottom=25mm,		% Bottom margin ระยะขอบล่าง (ไม่กำหนดก็ได้ เพราะจะจัดอัตโนมัติ)
+ }
+
+
+% การนิยามคำสั่งที่ใช้บ่อย และยาว ให้สั้นลง
+\def\l{\left}
+\def\r{\right}
+%\def\be{\begin{equation}}
+%\def\ee{\end{equation}}
+%\def\bea{\begin{eqnarray}}
+%\def\eea{\end{eqnarray}}
+\def\f{\frac}
+\def\no{\nonumber}
+\def\i{\hat{i}}
+\def\j{\hat{j}}
+\def\k{\hat{k}}
+\def\ro{\hat{\rho}}
+\def\vp{\hat{\varphi}}
+\def\x{\hat{x}}
+\def\y{\hat{y}}
+\def\z{\hat{z}}
+\def\e#1{\hat{e}_{#1}}
+\def\rh{\hat{r}}
+\def\tt{\hat{\theta}}
+\def\ph{\hat{\phi}}
+\def\cross{\times}
+\def\pd{\partial}
+\def\pdx{\frac{\partial}{\partial x}}
+\def\pdy{\frac{\partial}{\partial y}}
+\def\pdz{\frac{\partial}{\partial z}}
+\def\pdt{\frac{\partial}{\partial t}}
+\def\ddx{\frac{d}{dx}}
+\def\ddy{\frac{d}{dy}}
+\def\ddz{\frac{d}{dz}}
+\def\ddt{\frac{d}{dt}}
+\def\pt#1#2{\frac{\partial{#1}}{\partial{#2}}}
+\def\dd#1#2{\frac{d{#1}}{d{#2}}}
+\def\det#1{\rm det({#1})}
+\def\tr#1{\rm Tr({#1})}
+\def\ul#1{\rm \underline{#1}}
+\def\dul#1{\rm \underline{\underline{#1}}}
+\def\mi#1#2{\rm M_{#1}(\underline{#2})}
+\def\co#1#2{\rm C_{#1}(\underline{#2})}
+\def\red#1{\textcolor{red}{#1}}
+\def\blue#1{\textcolor{blue}{#1}}
+\def\w9{{\rm WMAP9+BAO+}$H_0$}
+\def\p15{$TT,TE,EE${\rm +lowP+Lensing+ext}}
+
+
+% More references in gloss-thai of polyglossia package
+% http://texdoc.net/texmf-dist/tex/latex/polyglossia/gloss-thai.ldf
+% \thaiAlpha works well, the sequence is ก ข "ฃ" ค "ฅ" ฆ ง จ ...
+% Normally, we need ก ข ค ง จ which is defined in \thaialph
+% I'm not sure why it doesn't work. So, I just re-define it.
+\def\thaialph#1{\expandafter\thalph\csname c@#1\endcsname}
+\def\thalph#1{%
+    \ifcase#1\or ก\or ข\or ค\or ง\or จ\or ฉ\or ช\or ซ\or
+    ฌ\or ญ\or ฎ\or ฏ\or ฐ\or ฑ\or ฒ\or ณ\or ด\or ต\or ถ\or ท\or ธ\or น\or
+    บ\or ป\or ผ\or ฝ\or พ\or ฟ\or ภ\or ม\or ย\or ร\or ฤ\or ล\or ฦ\or ว\or
+    ศ\or ษ\or ส\or ห\or ฬ\or อ\else ฮ\else\xpg@ill@value{#1}{thalph}\fi}
+
+\usepackage{subcaption}
+%\renewcommand{\figurename}{รูปที่}
+% กำหนดให้ subfigurename เป็น (ก), (ข), (ค), ...
+\renewcommand{\thesubfigure}{\thaialph{subfigure}}	
+
+
+\usepackage{array,tabularx}
+\makeatletter
+\def\thline#1{%
+    \noalign {\ifnum 0=`}\fi \hrule height #1
+    \futurelet \reserved@a \@xhline
+}
+\def\tvline#1{@{\hskip\tabcolsep\vrule width #1\hskip\tabcolsep}}
+\makeatother
+% End of make thick hline and vline
+
+% package{multirow} ใช้รวมแถวในตาราง
+%package{multirow} is use to combine the rows in a table.
+\usepackage{multirow}
+% package{array} ใช้ขยายความสูงของแต่ละแถวในตาราง
+%package{array} is use to expand the height of each row in a table.
+\usepackage{array}
+\title{  						% Title in Thai ชื่อเรื่องภาษาไทย
+พลังงานมืดแบบกฎกำลังของเตคีออน
+}
+\titleen{						% Title in English ชื่อเรื่องภาษาอังกฤษ
+Tachyonic Power-Law Dark Energy
+}
+
+% คำนำหน้าผู้เขียน
+\nameprefix{นางสาว}
+\nameprefixen{Miss}
+
+% ชื่อ และนามสกุลของผู้เขียน
+% \author{Name}{Surname}
+\author{น้ำเพชร}{แก้ววิลัย}
+\authoren{Nampetch}{Kaewwilai}
+
+
+% your figure ใส่ไฟล์รูปของผู้เขียน
+\myfig{CylinderCoor.png}
+
+% ชื่ออาจารย์ที่ปรึกษา
+\advisor{ดร.พงศพัศ แรงดี}                                % advisor
+\advisoren{Dr.Phongsaphat Rangdee}
+
+% ชื่ออาจารย์ที่ปรึกษาร่วม
+\coadvisor{ดร.ชลธิชา กฤษณ์เพ็ชร}
+\coadvisoren{Dr.Chonticha Kritpetch}
+
+%ชื่อปริญญา
+\degree{วิทยาศาสตรบัณฑิต}                                   % degree
+\degreeen{Bachelor of Science}
+%ชื่อย่อปริญญา
+\degreeAbb{วท.บ.}                                               % degree (abbreviation)
+\degreeAbben{B.Sc.}
+
+%หลักสูตร หรือสาขาวิชา
+\major{ฟิสิกส์}                                      % major
+\majoren{Physics}
+
+% ภาควิชา หรือสาขาวิชา
+\dept{ภาควิชาฟิสิกส์}                      % department
+
+% เดือน และปี พ.ศ. ที่สำเร็จการศึกษา
+\date{ตุลาคม 2565}                                               % date
+
+% ปีการศึกษา
+\academicyear{2565}                                             % academic year
+
+% คำสำคัญ ภาษาไทย  และภาษาอังกฤษ
+\keywordsth{                                                      % keywords in Thai คำสำคัญ ภาษาไทย ควรมีแค่ 3-4 คำ
+            แก๊สแชปลีจิน, พลังงานมืด, สนามสเกลาร์, เอกภพที่เร่งออก
+         }
+\keywords{						% Keywords in English คำสำคัญ ภาษาอังกฤษ ไม่ควรยาวมาก และควรมีแค่ 3-4 คำ
+			Chaplygin Gas, Dark Energy, Accelerating Universe, Phantom Power-Law
+		}
+
+% your working place สถานที่ทำงาน (ถ้ามี)
+%\workplace{}
+%\position{Lecturer at University of Phayao}
+%\workplace{Department of Physics, Faculty of Science, University of Phayao, Phayao 56000, Thailand}
+
+% Work Experiences ประสบการณ์การทำงาน (ถ้ามี)
+%\WorkExpr{      
+%\workexpr{2005 - 2009}{Lecturer at Department of Physics, Faculty of Science, University of Phayao, Phayao, Thailand}
+%\workexpr{2000 - 2001}{Lecturer at Department of Physics, Faculty of Science, Naresuan University, Phitsanulok, Thailand}
+%}
+%Publication List  รายการผลงานตีพิมพ์ (ถ้ามี)
+%\Publication{   
+%\publication{1}{\textbf{Rachan Rangdee} (IF) and Burin Gumjudpai (IF and ThEP), ``Tachyonic (phantom) power-law cosmology'', Astrophysics and Space Science \textbf{349} (2014) 975-984.
+%[arXiv:1210.5550 [astro-ph.CO]]}
+%\publication{2}{Burin Gumjudpai (IF and ICTP) and \textbf{Phongsaphat Rangdee} (IF), ``Non-minimal derivative coupling gravity in cosmology'', General Relativity and Gravitation \textbf{47} (2015) 140.
+%[arXiv:1511.00491 [gr-qc]]}
+%}
+
+% Oral and Poster Presentation List  รายการการนำเสนอทั้งแบบ Oral & Poster
+%\Presentation{          
+%\presentation{1}{\textbf{Rachan Rangdee} and Burin Gumjudpai (IF), ORAL ``Non-minimal Derivative Coupling with Power-Law'', RGJ-Ph.D. Congress XVI ``ASEAN: Emerging Research Oppotunities'', Pattaya, Chonburi, Thailand (2015).}
+%\presentation{2}{\textbf{Rachan Rangdee} (IF), ORAL ``Aspects of non-minimal derivative coupling'', the $7^{\rm th}$ Aegean Summer School Beyond Einstein's Theory of Gravity, Parikia, Island of Paros, Greece, (2013).}
+%\presentation{3}{\textbf{Rachan Rangdee} (IF), ORAL ``Tachyonic Phantom Power-Law Cosmology'', the Workshop on Heavy Ion and High Energy Physics 2012 (HIHEP2012), Naresuan University, Phitsanulok, Thailand (2012).}
+%\presentation{4}{\textbf{Rachan Rangdee} (IF), ORAL ``Tachyonic Power-Law Cosmology'', the Siam Physics Congress 2012 (SPC2012): Past, Present and Future of Physics, Phranakhon Si Ayutthaya, Thailand (2012).}
+%\presentation{5}{\textbf{Rachan Rangdee} (TPTP), POSTER ``TACHYONIC DARK ENERGY MODEL: DYNAMICS AND EVOLUTION'', the $11^{\rm th}$ Asian-Pacific Regional IAU Meeting (APRIM2011), Chiang Mai, Thailand (2011).}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  เริ่มต้นเอกสาร
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagenumbering{thaialph}
+%\maketitle
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% MAKE A COVER PAGE
+%%% สร้างหน้าปก (หน้าแรก)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\begin{center}
+  \Large{\textbf{Windows Server 2022\\}}
+  \vspace{3cm}
+  \centering
+  \begin{center}
+  \textbf{จัดทำโดย\\}
+  \vspace{1cm}
+  นายก้องนภา\hspace{0.6cm}วังตา \hspace{1cm} รหัสนิสิต \hspace{0.2cm} 64020529\\
+  นายปฏิวัติ\hspace{1.1cm}จำศิล \hspace{0.9cm} รหัสนิสิต \hspace{0.2cm} 64020675\\
+  นายสพลดนัย\hspace{0.5cm}พรหมศรี \hspace{0.25cm} รหัสนิสิต \hspace{0.2cm} 64020811\\
+  นายสิรวิชญ์\hspace{0.9cm}คำชุ่ม \hspace{0.85cm} รหัสนิสิต \hspace{0.2cm} 64020822\\
+  นายสุริยา\hspace{1.3cm}หาญจริง \hspace{0.3cm} รหัสนิสิต \hspace{0.2cm} 64020833\\
+  นายจิรศักดิ์\hspace{1cm}อุ่นบ้าน \hspace{0.45cm} รหัสนิสิต \hspace{0.2cm} 64024309\\
+  \end{center}
+  \vspace{3cm}
+  \textbf{เสนอ\\}
+  อาจารย์วรกฤต แสนโภชน์\\
+
+  \vspace{4cm}
+  \textbf{สาขาวิทยาการคอมพิวเตอร์   คณะเทคโนโลยีสารสนเทศและการสื่อสาร\\
+  รายวิชา 225331[2] แนวคิดระบบปฎิบัติการ\\
+  ภาคเรียนที่ 2 ปีการศึกษา 2566\\}
+  \end{center}
+  
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% กำหนดเลขหน้าเป็นเลขอารบิ
+\pagenumbering{arabic}
+\pagestyle{headings}
+\setcounter{page}{1}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% ADD CHAPTER TO THE MAIN FILE เพิ่มเนื้อหาของแต่ละบท
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{chap1}
+\include{references}
+
+\end{document}
+

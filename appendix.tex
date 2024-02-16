@@ -1,0 +1,430 @@
+
+%\setcounter{chapter}{15}
+%\renewcommand{\thechapter}{\thaialph{chapter}}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\numberwithin{equation}{chapter}
+%\chapter*{ภาคผนวก}\label{ChapApp}
+\markboth{ภาคผนวก}{}
+%\addcontentsline{toc}{chapter}{ภาคผนวก}
+%\addcontentsline{toc}{chapter}{\numberline{}ภาคผนวก}
+
+\renewcommand{\thesection}{ก}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section} \setcounter{equation}{0}
+%\section{ภาคผนวก~ก~: คณิตศาสตร์ที่จำเป็น}\label{SecApp1}
+\Appendix{คณิตศาสตร์ที่จำเป็น}\label{SecApp1}
+\markright{ภาคผนวก~ก~: คณิตศาสตร์ที่จำเป็น}
+%\addcontentsline{toc}{section}{Appendix~I}
+%\addcontentsline{toc}{section}{\numberline{}ภาคผนวก~ก~: คณิตศาสตร์ที่จำเป็น} 
+\setcounter{subsection}{0}
+
+\subsection[สัญกรณ์วิทยาศาสตร์]{สัญกรณ์วิทยาศาสตร์ (Scientific Notation)}\index{สัญกรณ์วิทยาศาสตร์}
+\noindent เนื่องจากปริมาณบางอย่างมีค่ามากมายมหาศาล เช่น อัตราเร็วแสงในสุญญากาศเท่ากับ $c=300\,000\,000\,\mathrm{m}/\mathrm{s}$ หรือปริมาณบางอย่างก็มีค่าน้อยมากๆ เช่น ความยาวคลื่นแสงสีแดงจากเลเซอร์นีออนเท่ากับ $ุ0.000\,000\,632.8\,\mathrm{m}$ เป็นที่ชัดเจนว่าการเขียนปริมาณที่มีค่ามากหรือน้อย ๆ ในลักษณะนี้ เป็นเรื่องที่ไม่สะดวกเป็นอย่างมาก ดังนั้นเราจึงเขียนตัวเลขเหล่านี้ด้วย ``ตัวเลขแบบวิทยาศาสตร์'' หรือเรียกเป็นทางการว่า ``สัญกรณ์วิทยาศาสตร์'' ซึ่งมีหลักการดังนี้\\
+
+\noindent ตัวเลขในรูปตัวเลขแบบวิทยาศาสตร์สามารถเขียนในรูปของจำนวนที่มากกว่าหรือเท่ากับ 1 แต่น้อยกว่า 10 คูณกับเลขยกกำลังฐาน 10  ซึ่งเขียนเป็นสัญลักษณ์ได้ดังนี้
+\begin{equation}\label{EqnI.1}
+  A\times 10^n
+\end{equation}
+เมื่อ $A$ เป็นจำนวนจริง โดยที่ในกรณีที่ $A$  เป็นจำนวนจริงบวก เราให้ $1\le A<10$ และในกรณีที่ $A$ เป็นจำนวนจริงลบ เราให้ $-10<A\le -1$  สำหรับเลขชี้กำลัง $n$ เป็นเลขจำนวนเต็ม การเขียนในรูปแบบตัวเลขวิทยาศาสตร์นอกจากจะเพิ่มประสิทธิภาพการเขียนตัวเลขที่มีค่ามากหรือน้อยแล้ว ยังเป็นตัวช่วยระบุจำนวนเลขนัยสำคัญได้อีกด้วย เช่น วัดระยะทางได้ 1,500 km เราไม่แน่ใจว่ามันมีตัวเลขนัยสำคัญกี่ตัว แต่ถ้าเราเขียนปริมาณนี้แบบเลขวิทยาศาสตร์เราสามารถกำหนดตัวเลขนัยสำคัญได้เลย ในกรณีที่เราให้มีเลขนัยสำคัญ 2 ตัว เราเขียน $1.5\times 10^3$ km กรณีที่ต้องการเลขนัยสำคัญ 4 ตัว เราเขียน $1.500\times 10^3$ km เป็นต้น
+
+
+\begin{example}{สัญกรณ์วิทยาศาสตร์}การเขียนเลขในรูปแบบสัญกรณ์วิทยาศาสตร์
+\begin{enumerate}
+   \item $432\,000=4.32\times 10^5$
+	\item $4\,734\,539.342=4.734539342\times 10^6$
+	\item $0.000000000232=2.32\times 10^{-10}$
+	\item $(6\times 10^3)(4\times 10^6)=2.4\times 10^{10}$
+	\item $\frac{(1.2\times 10^3)(3\times 10^{4})}{2.5\times 10^{10}}=1\times 10^{-3}$
+\end{enumerate}
+
+\end{example}
+
+
+\subsection{เลขยกกำลัง}
+\noindent เลขยกกำลังคือรูปแบบการเขียนตัวเลขในรูปการคูณกันของ ``เลขฐาน; $a$'' จำนวน $n$ ครั้ง เราเรียก $n$ ว่า ``เลขชี้กำลัง'' ดังนี้
+\begin{align}
+    a^n = \underset{n\,\mathrm{ตัว}}{\underbrace{a\cdot a \cdots a}}
+\end{align}
+เลขชี้กำลัง $n$ เป็นจำนวนใดๆ ดังตัวอย่าง
+\begin{example}{เลขยกกำลัง}ตัวอย่างการเขียนเลขให้อยู่ในรูปเลขยกกำลัง
+\begin{itemize}
+	\item $4 = 2^2=(-2)^2$
+	\item $8 = 2^3$
+	\item $-8 = (-2)^3$
+	\item $9 = 3^2 = (-3)^2$
+	\item $16 = 4^2=(-4)^2=2^4=(-2)^4$
+	\item $25 = 5^2 = (-5)^2$
+	\item $27 = 3^3$
+	\item $-27 = (-3)^3$
+	\item $\pm 2 = 4^{\frac{1}{2}}$
+	\item $\pm 3 = 9^{\frac{1}{2}}$
+	\item $\frac{1}{16}=4^{-2}$
+	\item $-\frac{1}{27}=(-3)^{-3}$
+\end{itemize}
+\end{example}  
+ในตัวอย่างด้านบนจะเห็นว่าบางปริมาณมีเลขชี้กำลังเป็นตัวเลขเศษส่วน  เราเรียกปริมาณเหล่านี้ว่า ``ราก (root)''   โดย ``รากที่ $m$ ของ $x$ มีค่าเท่ากับ $x^{\frac{1}{m}}$'' หรือนิยามอีกอย่างว่า \textbf{$a$ เป็นรากที่ $m$  ของ $x$ ก็ต่อเมื่อ $a^m=x$} ดังตัวอย่าง
+\begin{example}{ราก}ตัวอย่างของค่ารากที่ $m$ ของ $x$
+\begin{itemize}
+	\item $4^{\frac{1}{2}}=\pm 2$  ดังนั้นรากที่ 2 ของ 4 คือ +2 และ -2
+	\item $27^{\frac{1}{3}} = 3$ ดังนั้นรากที่ 3 ของ 27 คือ 3
+	\item $16^{\frac{1}{2}}=\pm 4$ ดังนั้นรากที่ 2 ของ 16 คือ +4 และ -4
+	\item $16^{\frac{1}{4}}=\pm 2$ ดังนั้นรากที่ 4 ของ 16 คือ +2 และ -2
+	\item $(-8)^{\frac{1}{3}}=-2$ ดังนั้นรากที่ 3 ของ -8 คือ -2
+\end{itemize}
+\end{example}
+เรานิยมเขียนรากที่ $m$ ด้วยสัญลักษณ์ $^m\sqrt{\,\,\,}$ เรียกว่า ``กรณฑ์ที่ $m$'' เช่น กรณฑ์ที่ $m$ ของ $x$ แทนด้วยสัญลักษณ์กรณฑ์คือ $^{m}\sqrt{x}$ เช่น กรณฑ์ที่ 3 ของ 27 เขียนเป็น $^{3}\sqrt{27}$ ยกเว้นกรณฑ์ที่ 2 นิยมเขียน $\sqrt{x}$ สัญลักษณ์ $^{m}\sqrt{x}$ เปรียบเสมือนฟังก์ชัน $f(x)$ อันหนึ่ง ดังนั้นถ้าเราเขียนกรณฑ์ที่ $m$ ด้วยสัญลักษณ์นี้คำตอบที่ได้ต้องมีคำตอบเดียวตามนิยามของฟังก์ชัน และต้องพิจารณาโดเมนและเรนจ์ด้วย ตัวอย่างถัดไปเป็นการเขียนรากที่สองและกรณฑ์ที่ 2
+\begin{example}{รากที่สองและกรณฑ์ที่สอง}แสดงรากที่สองและกรณฑ์ที่สอง
+\begin{itemize}
+ 	\item รากที่ 2 ของ 4 คือ $4^{1/2}=\pm 2$ กรณฑ์ที่ 2 ของ 4 คือ $\sqrt{4}=+2$
+	\item รากที่ 2 ของ 16 คือ $16^{1/2}=\pm 4$ กรณฑ์ที่ 2 ของ 4 คือ $\sqrt{16}=+4$
+	\item รากที่ 2 ของ $\frac{1}{9}$ คือ $\left(\frac{1}{9}\right)^{1/2}=\pm \frac{1}{3}$ กรณฑ์ที่ 2 ของ $\frac{1}{9}$ คือ $\sqrt{\frac{1}{9}}=+\frac{1}{3}$
+	\item รากที่ 2 ของ $\frac{1}{25}$ คือ $\left(\frac{1}{25}\right)^{1/2}=\pm \frac{1}{5}$ กรณฑ์ที่ 2 ของ $\frac{1}{25}$ คือ $\sqrt{\frac{1}{25}}=+\frac{1}{5}$
+\end{itemize}
+จะเห็นว่ากรณฑ์ที่ 2 ของ $x$ เขียนด้วยสัญลักษณ์ $f(x)=\sqrt{x}$ โดยมีค่าโดเมน $x\ge 0$ และเรนจ์ $f(x)\ge 0$ เสมอสำหรับระบบจำนวนจริง
+\end{example}
+บ่อยครั้งที่เราแก้สมการแล้วได้คำตอบสุุดท้ายเป็นรากที่สอง ซึ่งให้คำตอบออกมาสองคำตอบ
+\begin{example}{การเคลื่อนที่ด้วยความเร่งคงที่}รถยนต์เคลื่อนที่ด้วยจากหยุดนิ่งความเร่งคงที่ $5\,\mathrm{m}/\mathrm{s}^2$ จะใช้เวลาเท่าใดจึงจะเคลื่อนที่ได้ระยะทาง 100 m\\
+\textbf{วิธีทำ}จากสมการการเคลื่อนที่ด้วยความเร่งคงที่ เราได้ $S=ut+\frac{1}{2}at^2$ แทนค่า
+\begin{align*}
+ 	100 \,\mathrm{m} = \frac{1}{2} (5\,\mathrm{m}/\mathrm{s}^2)t^2
+\end{align*}
+ดังนั้น
+\begin{align*}
+ 	t^2=40\,\mathrm{s}^2
+\end{align*}
+ยกกำลัง $1/2$ ทั้งสองข้างของสมการเราได้คำตอบคือรากที่สองของ 40 นั่นเอง
+\begin{align*}
+ 	t=40^{\frac{1}{2}}\,\mathrm{s}=\pm\sqrt{40}\,\mathrm{s}
+\end{align*}
+และเราต้องเลือกคำตอบที่เป็นบวกนั่นคือเราได้คำตอบสุดท้ายคือ $t=\sqrt{40}$ s
+\end{example}
+
+
+\subsubsection{คุณสมบัติของเลขยกกำลัง}
+\noindent ถ้า $a,\, b$ เป็นจำนวนจริงท่ไม่เป็น 0 และ $m,\,n$ เป็นจำนวนเต็มจะได้
+\begin{itemize}
+	\item $a^0=1$ เมื่อ $a\ne 0$
+	\item $a^n=\frac{1}{a^{-n}}$
+	\item $a^{-n}=\frac{1}{a^n}$
+	\item $a^m\cdot a^n=a^{m+n}$
+	\item $(a^m)^n=a^{mn}$
+	\item $(ab)^n=a^n\cdot b^n$
+	\item $\left(\frac{a}{b}\right)^n=\frac{a^n}{b^n}$
+	\item $\frac{a^m}{a^n}=a^{m-n}$
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\thesection}{ข}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section} \setcounter{equation}{0}
+%\section*{ภาคผนวก~ข~: อักษรกรีก}\label{SecApp2}
+\Appendix{อักษรกรีก}\label{SecApp2}
+\markright{ภาคผนวก~ข~: อักษรกรีก}
+%\addcontentsline{toc}{section}{Appendix~I}
+%\addcontentsline{toc}{section}{\numberline{}ภาคผนวก~ข~: อักษรกรีก} 
+
+
+\begin{tabular}[!ht]{lclcl}
+\hline\\
+Alpha&$\quad$&$A$&$\quad$&$\alpha$\\
+Beta&&$B$&&$\beta$\\
+Gamma&&$\Gamma$&&$\gamma$\\
+Delta&&$\Delta$&&$\delta$\\
+Epsilon&&$E$&&$\epsilon$\\
+Zeta&&$Z$&&$\zeta$\\
+Eta&&$H$&&$\eta$\\
+Theta&&$\Theta$&&$\theta$\\
+Iota&&$I$&&$\iota$\\
+Kappa&&$K$&&$\kappa$\\
+Lambda&&$\Lambda$&&$\lambda$\\
+Mu&&$M$&&$\mu$\\
+Nu&&$N$&&$\nu$\\
+Xi&&$\Xi$&&$\xi$\\
+Omicron&&$O$&&$o$\\
+Pi&&$\Pi$&&$\pi$\\
+Rho&&$P$&&$\rho$\\
+Sigma&&$\Sigma$&&$\sigma$\\
+Tau&&$T$&&$\tau$\\
+Upsilon&&$\Upsilon$&&$\upsilon$\\
+Phi&&$\Phi$&&$\phi$\\
+Chi&&$X$&&$\chi$\\
+Psi&&$\Psi$&&$\psi$\\
+Omega&&$\Omega$&&$\omega$\\\\
+\hline
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\renewcommand{\thesection}{ค}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section} \setcounter{equation}{0}
+%\section*{ภาคผนวก~ค~: ธาตุและมวลอะตอม}\label{SecApp3}
+\Appendix{ธาตุและมวลอะตอม}\label{SecApp3}
+\markright{ภาคผนวก~ค~: ธาตุและมวลอะตอม}
+%\addcontentsline{toc}{section}{Appendix~I}
+%\addcontentsline{toc}{section}{\numberline{}ภาคผนวก~ค~: ธาตุและมวลอะตอม} 
+\noindent กำหนดให้ $Z$ คือเลขอะตอม $A$ คือเลขมวล และมวลอะตอมอยู่ในหน่วย u\\
+
+\begin{tabular}[!ht]{rlcrr}
+\hline\\
+$Z$&ธาตุ&สัญลักษณ์&$A$&มวลอะตอม\\
+\hline\\
+0&(Neutron)&$n$&1&1.008 665\\
+1&Hydrogen&H&1&1.007 825\\
+&Deuterium&D&2&2.014 102\\
+&Tritium&T&3&3.016 049\\
+2&Helium&He&3&3.016 029\\
+&&&4&4.002 603\\
+&&&5&5.012 22\mbox{ }\\
+&&&6&6.018 886\\
+3&Lithium&Li&6&6.015 121\\
+&&&7&7.016 003\\
+4&Beryllium&Be&7&7.016 930\\
+&&&8&8.005 305\\
+&&&9&9.012 182\\
+5&Boron&B&10&10.012 937\\
+&&&11&11.009 305\\
+6&Carbon&C&11&11.011 433\\
+&&&12&12.000 000\\
+&&&13&13.003 355\\
+&&&14&14.003 242\\
+7&Nitrogen&N&13&13.005 739\\
+&&&14&14.003 074\\
+&&&15&15.000 109\\
+8&Oxygen&O&15&15.003 065\\
+&&&16&15.994 915\\
+&&&18&17.999 159\\
+9&Fluorine&F&19&18.998 403\\
+10&Neon&Ne&20&19.992 435\\
+&&&21&20.993 843\\
+&&&22&21.991 384\\
+11&Sodium&Na&22&21.994 435\\
+&&&23&22.989 767\\
+&&&24&23.990 961\\\\
+\hline
+\end{tabular}
+
+\begin{tabular}{rlcrr}
+\hline\\
+$Z$&ธาตุ&สัญลักษณ์&$A$&มวลอะตอม\\
+\hline\\
+12&Magnesium&Mg&24&23.985 042\\
+13&Aluminium&Al&27&26.981 541\\
+14&Silicon&Si&28&27.976 928\\
+&&&29&28.976 495\\
+&&&31&30.975 364\\
+15&Phosphorus&P&31&30.973 763\\
+&&&32&31.973 908\\
+16&Sulfur&S&32&31.972 072\\
+&&&35&34.969 033\\
+17&Chlorine&Cl&35&34.968 853\\
+&&&37&36.965 903\\
+18&Argon&Ar&40&39.962 383\\
+19&Potassium&K&39&38.963 798\\
+&&&40&39.964 000\\
+20&Calcium&Ca&40&39.962 591\\
+21&Scandium&Sc&45&44.955 914\\
+22&Titanium&Ti&48&47.947 947\\
+23&Vanadium&V&51&50.943 963\\
+24&Crhomium&Cr&52&51.940 510\\
+25&Manganese&Mn&55&54.938 046\\
+26&Iron&Fe&54&53.939 612\\
+&&&56&55.934 939\\
+&&&57&56.935 396\\
+27&Cobalt&Co&59&58.933 198\\
+&&&60&59.933 820\\
+28&Nickel&Ni&58&57.935 347\\
+&&&60&59.930 789\\
+&&&64&63.927 968\\
+29&Copper&Cu&63&62.929 599\\
+&&&64&63.929 766\\
+&&&65&64.927 792\\
+30&Zinc&Zn&64&63.929 145\\
+&&&66&65.926 035\\
+31&Gallium&Ga&69&68.925 581\\
+32&Germanium&Ge&72&71.922 080\\
+&&&74&73.921 179\\\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{rlcrr}
+\hline\\
+$Z$&ธาตุ&สัญลักษณ์&$A$&มวลอะตอม\\
+\hline\\
+33&Arsenic&As&75&74.921 596\\
+34&Selenium&Se&80&79.916 521\\
+35&Bromine&Br&79&78.918 336\\
+36&Krypton&Kr&84&83.911 506\\
+&&&89&88.917 563\\
+37&Rubidium&Rb&85&84.911 800\\
+38&Strontium&Sr&86&85.909 273\\
+&&&88&87.905 625\\
+&&&90&89.907 746\\
+39&Yttrium&Y&89&88.905 856\\
+40&Zirconium&Zr&90&89.904 708\\
+41&Niobium&Nb&93&92.906 378\\
+42&Molybdenium&Mo&98&97.905 405\\
+43&Technetium&Tc&98&97.907 210\\
+44&Ruthenium&Ruu&102&101.904 348\\
+45&Rhodium&Rh&103&102.905 50\mbox{ }\\
+46&Palladium&Pd&106&105.903 48\mbox{ }\\
+47&Silver&Ag&107&106.905 095\\
+&&&109&108.904 754\\
+48&Cadmium&Cd&114&113.903 361\\
+49&Indium&In&115&114.903 88\mbox{ }\\
+50&Tin&Sn&120&119.902 199\\
+51&Antimony&Sb&121&120.903 824\\
+52&Tellurium&Te&130&129.906 23\mbox{ }\\
+53&Iodine&I&127&126.904 477\\
+&&&131&130.906 118\\
+54&Xenon&Xe&132&131..904 15\mbox{ }\\
+&&&136&135.907 22\mbox{ }\\
+55&Cesium&Cs&133&132.905 43\mbox{ }\\
+56&Barium&Ba&137&136.905 82\mbox{ }\\
+&&&138&137.905 24\mbox{ }\\
+&&&144&143.922 673\\
+57&Lanthanum&La&139&138.906 36\mbox{ }\\
+58&Cerium&Ce&140&139.905 44\mbox{ }\\
+59&Praseodymium&Pr&141&140.907 66\mbox{ }\\
+60&Neodymium&Nd&142&141.907 73\mbox{ }\\
+61&Promethium&Pm&145&144.912 75\mbox{ }\\
+62&Samarium&Sm&152&151.919 74\mbox{ }\\\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{rlcrr}
+\hline\\
+$Z$&ธาตุ&สัญลักษณ์&$A$&มวลอะตอม\\
+\hline\\
+63&Europium&Eu&153&152.921 24\mbox{ }\\
+64&Gadolinium&Gd&158&157.924 11\mbox{ }\\
+65&Terbium&Tb&159&158.925 35\mbox{ }\\
+66&Dysprosium&Dy&164&163.929 18\mbox{ }\\
+67&Holmium&Ho&165&164.930 33\mbox{ }\\
+68&Erbium&Er&166&165.930 31\mbox{ }\\
+69&Thulium&Tm&1699&168.934 23\mbox{ }\\
+70&Ytterbium&Yb&174&173.938 87\mbox{ }\\
+71&Lutecium&Lu&175&174.940 79\mbox{ }\\
+72&Hafnium&Hf&180&179.946 56\mbox{ }\\
+73&Tantalum&Ta&181&180.948 01\mbox{ }\\
+74&Tungsten&W&184&183..950 95\mbox{ }\\
+75&Rhenium&Re&187&186.955 77\mbox{ }\\
+76&Osmium&Os&191&190.960 94\mbox{ }\\
+&&&192&191.961 49\mbox{ }\\
+77&Iridium&Ir&191&190.960 60\mbox{ }\\
+&&&193&192.962 94\mbox{ }\\
+78&Platinum&Pt&195&194.964 79\mbox{ }\\
+79&Golg&Au&197&196.966 56\mbox{ }\\
+80&Mercury&Hg&202&201.970 63\mbox{ }\\
+81&Thallium&Tl&205&204.974 41\mbox{ }\\
+&&&210&209.990 056\\
+82&Lead&Pb&204&203.973 044\\
+&&&206&205.974 46\mbox{ }\\
+&&&207&206.975 89\mbox{ }\\
+&&&208&207.976 64\mbox{ }\\
+&&&210&209.984 16\mbox{ }\\
+&&&211&210.988 74\mbox{ }\\
+&&&212&211.991 88\mbox{ }\\
+&&&214&213.999 80\mbox{ }\\
+83&Bismuth&Bi&209&208.980 39\mbox{ }\\
+&&&211&210.987 26\mbox{ }\\
+84&Polonium&Po&210&209.982 86\mbox{ }\\
+&&&214&213.995 19\mbox{ }\\
+85&Astatine&At&218&218.008 70\mbox{ }\\
+86&Radon&Rn&222&222.017 574\\
+87&Francium&Fr&223&223.019 734\\
+88&Radium&Ra&226&226.025 406\\
+&&&228&228.031 069\\\\
+\hline
+\end{tabular}
+
+\begin{tabular}{rlcrr}
+\hline\\
+$Z$&ธาตุ&สัญลักษณ์&$A$&มวลอะตอม\\
+\hline\\
+89&Actinium&Ac&227&227.027 751\\
+90&Thorium&Th&228&228.028 73\mbox{ }\\
+&&&232&232.038 054\\
+91&Protactinium&Pa&231&231.035 881\\
+92&Uranium&U&232&232.037 14\mbox{ }\\
+&&&233&233.039 629\\
+&&&235&235.043 925\\
+&&&236&236.045 563\\
+&&&238&238.050 786\\
+&&&239&239.054 291\\
+93&Neptunium&Np&239&239.052 932\\
+94&Plutonium&Pu&239&239.052 158\\
+95&Americium&Am&243&243.061 374\\
+96&Curium&Cm&245&245.065 487\\
+97&Berkelium&Bk&247&247.070 03\mbox{ }\\
+98&Californium&Cf&249&249.074 849\\
+99&Einsteinium&Es&254&254.088 02\mbox{ }\\
+100&Fermium&Fm&253&253.085 18\mbox{ }\\
+101&Mendelevium&Md&255&255.091 1\mbox{  }\\
+102&Nobelium&No&255&255.093 3\mbox{  }\\
+103&Lawrencium&Lr&257&257.099 8\mbox{  }\\
+104&Unnilquadium&Rf&261&261.108 7\mbox{  }\\
+105&Unnilpentium&Ha&262&262.113 760\\
+106&Unnihexium&&263&263.118 4\mbox{  }\\
+107&Unnilseptium&&261&261\mbox{       }\\
+109&&&&\\\\
+\hline
+\end{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\renewcommand{\thesection}{ง}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section} \setcounter{equation}{0}
+%\section*{ภาคผนวก~ง~: หน่วยในระบบ SI}\label{SecApp4}
+\Appendix{หน่วยในระบบ SI}\label{SecApp4}
+\markright{ภาคผนวก~ง~: หน่วยในระบบ SI}
+%\addcontentsline{toc}{section}{Appendix~I}
+%\addcontentsline{toc}{section}{\numberline{}ภาคผนวก~ง~: หน่วยในระบบ SI}
+\noindent \textbf{หน่วยฐาน}
+
+\begin{tabular}[!ht]{lll}
+\hline\\
+ปริมาณทางฟิสิกส์&หน่วย&สัญลักษณ์\\
+\hline\\
+ความยาว&เมตร& m\\
+มวล&กิโลกรัม&kg\\
+เวลา&วินาที&s\\
+กระแสไฟฟ้า&แอมแปร์&A\\
+อุณหภูมิ&เคลวิน&K\\
+ปริมาณสาร&โมล&mol\\
+ความเข้มการส่องสว่าง&แคนเดลลา&cd\\\\
+\hline
+\end{tabular}\\
+
+
+\noindent\textbf{หน่วยอนุพันธ์ (บางส่วน)}
+
+\begin{tabular}[!ht]{lllll}
+\hline\\
+ปริมาณทางฟิสิกส์&หน่วย&สัญลักษณ์&รูปหน่วยฐาน&รูปอื่น\\
+\hline\\
+มุมในระนาบ&radian&rad&$\mathrm{m}/\mathrm{m}$&\\
+ความถี่&hertz&Hz&$\mathrm{s}^{-1}$&\\
+แรง&newton&N&$\mathrm{kg}\cdot\mathrm{m}/\mathrm{s}^2$&J/m\\
+ความดัน&pascal&Pa&$\mathrm{kg}/\mathrm{m}\cdot\mathrm{s}^2$&$\mathrm{N}/\mathrm{m}^2$\\
+พลังงาน, งาน&joule&J&$\mathrm{kg}\cdot\mathrm{m}^2/\mathrm{s}^2$&$\mathrm{N}\cdot\mathrm{m}$\\
+กำลัง&watt&W&$\mathrm{kg}\cdot\mathrm{m}^2/\mathrm{s}^3$&$\mathrm{J}/\mathrm{s}$\\
+ประจุไฟฟ้า&coulomb&C&$\mathrm{A}\cdot\mathrm{s}$&\\
+ศักย์ไฟฟ้า&volt&V&$\mathrm{kg}\cdot\mathrm{m}^2/\mathrm{A}\cdot\mathrm{s}^3$&$\mathrm{W}/\mathrm{A}$\\
+ความจุ&farad&F&$\mathrm{A}^2\cdot\mathrm{s}^4/\mathrm{kg}\cdot\mathrm{m}^2$&$\mathrm{C}/\mathrm{V}$\\
+ความต้านทานไฟฟ้า&ohm&$\Omega$&$\mathrm{kg}\cdot\mathrm{m}^2/\mathrm{A}^2\cdot\mathrm{s}^3$&$\mathrm{V}/\mathrm{A}$\\
+ฟลักซ์แม่เหล็ก&weber&Wb&$\mathrm{kg}\cdot\mathrm{m}^2/\mathrm{A}\cdot\mathrm{s}^2$&$\mathrm{V}\cdot\mathrm{s}$\\
+ความเข้มสนามแม่เหล็ก&tesla&T&$\mathrm{kg}/\mathrm{A}\cdot\mathrm{s}^2$&$\mathrm{Wb}/\mathrm{m}^2$\\
+ความเหนี่ยวนำ&henry&H&$\mathrm{kg}\cdot\mathrm{m}^2/\mathrm{A}^2\cdot\mathrm{s}^2$&$\mathrm{Wb}/\mathrm{A}$\\\\
+\hline
+\end{tabular} 
+
+
+%---------------------------------------------------------------------------------------
